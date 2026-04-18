@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pinoké Keuken</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+  <div class="min-h-screen p-6 md:p-10">
+    <div class="hidden md:block relative mb-8 w-full">
+      <div class="flex items-start justify-between gap-6">
+        <div>
+          <h1 class="text-4xl font-black tracking-tight text-slate-900">Pinoké Keuken</h1>
+          <p class="mt-2 text-lg text-slate-600">Ticketsysteem Testversie</p>
+        </div>
+        <img src="/logo.png" alt="Pinoké" class="h-28 w-auto py-1 px-1 object-contain" onerror="this.style.display='none'">
+      </div>
+      <div class="mt-6 h-px bg-slate-200"></div>
+    </div>
+
+    <div class="flex gap-6 flex-col lg:flex-row">
+      <div class="flex-1 w-full max-w-sm mx-auto lg:mx-0">
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" id="numpadCard">
+          <div class="mb-6 h-28 flex items-center justify-center rounded-2xl bg-slate-100 border border-slate-200">
+            <span id="currentNumber" class="text-6xl font-black tracking-wider text-slate-900">....</span>
+          </div>
+
+          <div id="adminMessage" class="hidden mb-4 rounded-2xl px-4 py-3 text-sm font-medium"></div>
+
+          <div class="grid grid-cols-3 gap-3">
+            <button data-digit="7" class="digit-btn">7</button>
+            <button data-digit="8" class="digit-btn">8</button>
+            <button data-digit="9" class="digit-btn">9</button>
+            <button data-digit="4" class="digit-btn">4</button>
+            <button data-digit="5" class="digit-btn">5</button>
+            <button data-digit="6" class="digit-btn">6</button>
+            <button data-digit="1" class="digit-btn">1</button>
+            <button data-digit="2" class="digit-btn">2</button>
+            <button data-digit="3" class="digit-btn">3</button>
+            <button id="clearInputBtn" class="h-20 rounded-2xl bg-red-600 text-white text-xl font-semibold shadow-sm transition hover:bg-red-700 active:scale-[0.98]">Clear</button>
+            <button data-digit="0" class="digit-btn">0</button>
+            <button id="callOrderBtn" class="h-20 rounded-2xl bg-lime-600 text-white text-xl font-semibold shadow-sm transition hover:bg-lime-700 active:scale-[0.98]">Roepen</button>
+          </div>
+
+          <div class="mt-4 text-center text-sm text-slate-500">
+            <b>Maximaal 4 cijfers. Nieuwe nummers verdwijnen automatisch na 5 minuten.</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <h2 class="text-3xl font-black tracking-tight">Klaargemaakte bestellingen</h2>
+            <button id="clearAllBtn" class="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50">Alles wissen</button>
+          </div>
+          <div id="ordersList" class="grid grid-cols-2 sm:grid-cols-3 gap-4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+
+    <footer class="absolute bottom-6 left-0 w-full text-center text-lg text-black opacity-70">
+      Powered by LarsFixt & MRY AV
+   </footer>
+  </body>
+</html>
